@@ -4,8 +4,6 @@
 #include <thread>
 #include <utility>
 
-#include "iso_week.h"
-
 template <typename Time = std::chrono::microseconds,
           typename Clock = std::chrono::high_resolution_clock>
 struct perf_timer {
