@@ -7,7 +7,8 @@ include_directories(3rdparty/rapidxml)
 include_directories(3rdparty/nlohmannjson)
 include_directories(3rdparty/sqlite)
 include_directories(3rdparty/sqlite_modern_cpp/hdr)
-
+include_directories(3rdparty/cryptopp)
+add_subdirectory(3rdparty/cryptopp)
 
 add_executable(math math.cc)
 add_executable(lang lang.cc)
@@ -20,7 +21,9 @@ add_executable(design_pattern design_pattern.cc)
 add_executable(serialization serialization.cc)
 # add_executables(archive archive.cc)
 add_executable(database 3rdparty/sqlite/sqlite3.c database.cc)
+
 add_executable(crypto crypto.cc)
+target_link_libraries(crypto cryptlib)
 
 add_custom_command(
   TARGET database PRE_BUILD
